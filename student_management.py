@@ -49,6 +49,19 @@ def display_student_info(student_list):
         print("=" * 40)
 
 
+def update_student(student_list):
+    student_id = int(input("Enter student ID to update: "))
+
+    for student in student_list:
+        if student.student_id == student_id:
+            student.name = input("Enter new name: ")
+            student.course = input("Enter new course: ")
+            print("Student details updated successfully!")
+            return
+
+    print("Student not found!")
+
+
 def main():
     print("=" * 40)
     print("       STUDENT MANAGEMENT SYSTEM")
@@ -76,6 +89,7 @@ def main():
             display_student_info(student_list)
 
         elif choice == "3":
+            update_student(student_list)
             print()
 
         elif choice == "4":
