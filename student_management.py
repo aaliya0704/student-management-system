@@ -62,6 +62,16 @@ def update_student(student_list):
     print("Student not found!")
 
 
+def delete_student(student_list):
+    student_id = int(input("Enter the Student ID to delete that student's details: "))
+    for student in student_list:
+        if student.student_id == student_id:
+            student_list.remove(student)
+            print("Student deleted successfully!")
+            return
+    print("Student not found!")
+
+
 def main():
     print("=" * 40)
     print("       STUDENT MANAGEMENT SYSTEM")
