@@ -5,23 +5,6 @@ class Student:
         self.course = course
 
 
-def display_student_info(student_list):
-
-    if len(student_list) == 0:
-        print("Nothing to show in the list!")
-        return
-    # now we print the data: for which we first access the attribute with the object name to retrieve the value stored in that attribute.
-    # Objects use dot notation (.) to access their attributes.
-    # In the for loop the element student will represent the object, so that for printing the values stored in different objects we can use the same element insted of using the particular object name again and again.
-    # Loop through the list -> going to each object (student) in the list and printing the contents stored in one object, at a time in each iteration.
-    for student in student_list:
-        print("Name: ", student.name)
-        print("Student ID: ", student.student_id)
-        print("Course: ", student.course)
-    # In the 1st iteration the student variable refers to the first student object in the students list.
-    # Similarly, in the 2nd iteration, the student variables refers to the 2nd student object in the list.
-
-
 def display_menu():
     print("MENU: ")
     print("1. Add Student")
@@ -42,6 +25,28 @@ def create_student():
     # Here the student object has been created -> and soon as it was created python calls the __init__() constructor.
     # Inside that constructor -> python first goes to self, then it stores the user entered values in the respective attributes -> substitutes the values in place of the attributes -> those values are stored in the created object "student" in their respective order.
     return student  # returns the created object to the caller main()
+
+
+def display_student_info(student_list):
+
+    if len(student_list) == 0:
+        print("Nothing to show in the list!")
+        return
+    # now we print the data: for which we first access the attribute with the object name to retrieve the value stored in that attribute.
+    # Objects use dot notation (.) to access their attributes.
+    # In the for loop the element student will represent the object, so that for printing the values stored in different objects we can use the same element insted of using the particular object name again and again.
+
+    else:
+        print("STUDENT RECORDS: ")
+        print("=" * 40)
+    # Loop through the list -> going to each object (student) in the list and printing the contents stored in one object, at a time in each iteration.
+    for student in student_list:
+        print(f"Name:  {student.name}")
+        print(f"Student ID: {student.student_id}")
+        print(f"Course: {student.course}")
+        # In the 1st iteration the student variable refers to the first student object in the students list.
+        # Similarly, in the 2nd iteration, the student variables refers to the 2nd student object in the list.
+        print("=" * 40)
 
 
 def main():
@@ -69,7 +74,6 @@ def main():
         elif choice == "2":
             # calling the display_student_info() to display the values:
             display_student_info(student_list)
-            print()
 
         elif choice == "3":
             print()
