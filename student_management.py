@@ -32,15 +32,24 @@ def display_menu():
     print("6. Exit")
 
 
+def create_student():
+    print("Enter the student details below: ")
+    name = input("Enter the student name: ")
+    student_id = int(input("Enter the student ID: "))
+    course = input("Enter the course name: ")
+
+    student = Student(name, student_id, course)
+    # Here the student object has been created -> and soon as it was created python calls the __init__() constructor.
+    # Inside that constructor -> python first goes to self, then it stores the user entered values in the respective attributes -> substitutes the values in place of the attributes -> those values are stored in the created object "student" in their respective order.
+    return student  # returns the created object to the caller main()
+
+
 def main():
     print("=" * 40)
     print("       STUDENT MANAGEMENT SYSTEM")
     print("=" * 40)
     print("Manage student records efficiently using Python.")
     print()
-
-    # As soon as python sees that an object is to be created -> it calls the __init__ constructor.
-    # In that constructor -> python first goes to self, then it stores the values in the respective attributes.
 
     # Creating empty student list
     student_list = []
@@ -50,18 +59,27 @@ def main():
         display_menu()
 
         choice = input("Enter your choice: ")
+
         if choice == "1":
-            print()
+            student = create_student()  # the student object returned by the create_student() is stored in the student variable.
+            # Now we append the student object to the student list as:
+            student_list.append(student)
+            print("Student details added successfully!")
+
         elif choice == "2":
             # calling the display_student_info() to display the values:
             display_student_info(student_list)
             print()
+
         elif choice == "3":
             print()
+
         elif choice == "4":
             print()
+
         elif choice == "5":
             print()
+
         elif choice == "6":
             print("Thank you for using the student management app!")
             break
