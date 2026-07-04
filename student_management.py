@@ -72,6 +72,21 @@ def delete_student(student_list):
     print("Student not found!")
 
 
+def search_student(student_list):
+    student_id = int(input("Enter student ID to search: "))
+
+    for student in student_list:
+        if student.student_id == student_id:
+            print("Student Found!")
+            print("-" * 30)
+            print(f"name       : {student.name}")
+            print(f"Student ID : {student.student_id}")
+            print(f"Course     : {student.course}")
+            print("-" * 30)
+            return
+    print("Student not found!")
+
+
 def main():
     print("=" * 40)
     print("       STUDENT MANAGEMENT SYSTEM")
@@ -100,13 +115,12 @@ def main():
 
         elif choice == "3":
             update_student(student_list)
-            print()
 
         elif choice == "4":
-            print()
+            delete_student(student_list)
 
         elif choice == "5":
-            print()
+            search_student(student_list)
 
         elif choice == "6":
             print("Thank you for using the student management app!")
